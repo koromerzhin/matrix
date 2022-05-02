@@ -1,0 +1,88 @@
+server_name: "matrix.traefik.me"
+pid_file: /data/homeserver.pid
+web_client_location: https://riot.traefik.me/
+public_baseurl: https://synapse.traefik.me/
+listeners:
+  - port: 8008
+    tls: false
+    type: http
+    x_forwarded: true
+    resources:
+      - names: [client, federation]
+        compress: false
+admin_contact: 'mailto:matrix@traefik.me'
+limit_remote_rooms:
+retention:
+  enabled: true
+acme:
+    enabled: false
+    port: 80
+    bind_addresses: ['::', '0.0.0.0']
+    reprovision_threshold: 30
+    domain: matrix.example.com
+    account_key_file: /data/acme_account.key
+caches:
+   per_cache_factors:
+database:
+  name: psycopg2
+  args:
+    user: synapse
+    password: password
+    database: synapse_bdd
+    host: postgresql
+    cp_min: 5
+    cp_max: 10
+log_config: "/data/matrix.traefik.me.log.config"
+media_store_path: "/data/media_store"
+url_preview_accept_language:
+turn_uris:
+  - "turn:matrix.traefik.me:3478?transport=udp"
+  - "turn:matrix.traefik.me:3478?transport=tcp"
+  - "turns:matrix.traefik.me:3478?transport=udp"
+  - "turns:matrix.traefik.me:3478?transport=tcp"
+turn_shared_secret: "TURN_SHARED_SECRET"
+turn_user_lifetime: 1h
+turn_allow_guests: true
+enable_registration: true
+account_validity:
+registration_shared_secret: "SHOULD_BE_GENERATED"
+account_threepid_delegates:
+metrics_flags:
+report_stats: true
+app_service_config_files:
+  - /mautrix-whatsapp/registration.yaml
+  - /mautrix-signal/registration.yaml
+  - /matrix-appservice-irc/appservice-registration-irc.yaml
+macaroon_secret_key: "SHOULD_BE_GENERATED"
+form_secret: "SHOULD_BE_GENERATED"
+signing_key_path: "/data/matrix.traefik.me.signing.key"
+old_signing_keys:
+trusted_key_servers:
+  - server_name: "matrix.org"
+saml2_config:
+  sp_config:
+  user_mapping_provider:
+    config:
+oidc_providers:
+cas_config:
+sso:
+password_config:
+   policy:
+ui_auth:
+email:
+  smtp_host: smtp
+  smtp_port: 25
+  smtp_user: "matrix@traefik.me"
+  require_transport_security: true
+  notif_from: "Your Friendly %(app)s homeserver <matrix@traefik.me>"
+  app_name: CHANGEME
+  enable_notifs: true
+password_providers:
+push:
+spam_checker:
+user_directory:
+opentracing:
+redis:
+  enabled: true
+  host: redis
+  port: 6379

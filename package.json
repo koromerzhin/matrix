@@ -1,0 +1,26 @@
+{
+  "name": "@koromerzhin/matrix",
+  "version": "1.0.0",
+  "description": "Repo for docker matrix protocol",
+  "scripts": {
+    "linter-markdown": "markdownlint",
+    "contributors": "all-contributors",
+    "readme": "readme",
+    "licenses": "license-checker",
+    "changelog": "changelog"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/koromerzhin/matrix.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/koromerzhin/matrix/issues"
+  },
+  "homepage": "https://github.com/koromerzhin/matrix#readme",
+  "dependencies": {
+    "koromerzhin-dependencies": "^1.3.0"
+  }
+}
