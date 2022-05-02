@@ -14,7 +14,6 @@ services:
     volumes:
       - ${PWD}/riot/config.json:/app/config.json:ro
     networks:
-      - serverlampy
       - proxylampy
       - net
     deploy:
@@ -30,7 +29,6 @@ services:
       - ${PWD}/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf
       - ${PWD}/nginx/www:/var/www/
     networks:
-      - serverlampy
       - proxylampy
       - net
     deploy:
