@@ -24,3 +24,6 @@ else
 		["readme"]="linter README.md" \
 	)
 endif
+
+bddset: ## Set bdd
+	@cp database_init/01_matrix.sql lampy/postgresql_init/01_matrix.sql
