@@ -10,7 +10,7 @@ networks:
     attachable: true
 services:
   riot:
-    image: vectorim/element-web:v1.7.25
+    image: vectorim/element-web:v1.10.11
     volumes:
       - ${PWD}/riot/config.json:/app/config.json:ro
     networks:
