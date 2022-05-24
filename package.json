@@ -21,6 +21,6 @@
   },
   "homepage": "https://github.com/koromerzhin/matrix#readme",
   "dependencies": {
-    "koromerzhin-dependencies": "1.3.0"
+    "koromerzhin-dependencies": "1.3.3"
   }
 }
