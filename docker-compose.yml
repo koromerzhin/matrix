@@ -24,7 +24,7 @@ services:
         - "traefik.http.routers.riot.tls=true"
         - "traefik.http.services.riot.loadbalancer.server.port=80"
   matrix:
-    image: nginx:1.19.10
+    image: nginx:1.27.2
     volumes:
       - ${PWD}/nginx/matrix.conf:/etc/nginx/conf.d/matrix.conf
       - ${PWD}/nginx/www:/var/www/
