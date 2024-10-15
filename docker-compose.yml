@@ -39,7 +39,7 @@ services:
         - "traefik.http.routers.matrix.tls=true"
         - "traefik.http.services.matrix.loadbalancer.server.port=80"
   synapse:
-    image: matrixdotorg/synapse:v1.57.1
+    image: matrixdotorg/synapse:v1.117.0
     networks:
       - serverlampy
       - proxylampy
